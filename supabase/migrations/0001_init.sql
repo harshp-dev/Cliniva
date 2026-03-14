@@ -1,0 +1,5 @@
+-- Migration: 0001_init
+-- Purpose: Baseline schema placeholder for Cliniva MVP.
+-- Notes:
+-- - Keep all schema changes in versioned migration files.
+-- - Add tables, RLS policies, and indexes in follow-up migrations.
