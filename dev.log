@@ -1,0 +1,68 @@
+
+> virtual-health-platform@0.1.0 dev
+> next dev
+
+  ▲ Next.js 14.2.33
+  - Local:        http://localhost:3000
+  - Environments: .env
+
+ ✓ Starting...
+ ✓ Ready in 3.2s
+ ○ Compiling /login ...
+ ✓ Compiled /login in 7.3s (647 modules)
+ GET /login 200 in 8527ms
+ ✓ Compiled in 1331ms (314 modules)
+ ✓ Compiled in 260ms (300 modules)
+ ○ Compiling /favicon.ico ...
+ ✓ Compiled /favicon.ico in 6.5s (356 modules)
+ GET /favicon.ico 200 in 6984ms
+ ○ Compiling /signup ...
+ ✓ Compiled /signup in 836ms (662 modules)
+ ○ Compiling / ...
+ ✓ Compiled / in 535ms (668 modules)
+ GET / 200 in 1111ms
+ ○ Compiling /middleware ...
+ ✓ Compiled /middleware in 1729ms (123 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Serializing big strings (140kiB) impacts deserialization performance (consider using Buffer instead and decode when needed)
+ GET /?code=7dd6cacc-78ed-42f4-a0ab-5ea2f1782c8d 200 in 64ms
+ GET / 200 in 74ms
+ ✓ Compiled in 1031ms (652 modules)
+ ✓ Compiled in 540ms (318 modules)
+ GET / 200 in 147ms
+ GET / 200 in 48ms
+   Reload env: .env
+ ✓ Compiled in 1217ms (761 modules)
+   Reload env: .env
+ ✓ Compiled in 346ms (761 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Serializing big strings (140kiB) impacts deserialization performance (consider using Buffer instead and decode when needed)
+   Reload env: .env
+ ✓ Compiled in 961ms (775 modules)
+ ✓ Compiled in 319ms (318 modules)
+   Reload env: .env
+ ✓ Compiled in 230ms (761 modules)
+   Reload env: .env
+ ✓ Compiled in 542ms (761 modules)
+   Reload env: .env
+ ✓ Compiled in 272ms (761 modules)
+ ✓ Compiled in 272ms (761 modules)
+   Reload env: .env
+ ✓ Compiled in 203ms (761 modules)
+   Reload env: .env
+ ✓ Compiled in 229ms (761 modules)
+   Reload env: .env
+ ✓ Compiled in 264ms (761 modules)
+   Reload env: .env
+ ✓ Compiled in 213ms (761 modules)
+   Reload env: .env
+ ✓ Compiled in 256ms (761 modules)
+   Reload env: .env
+ ✓ Compiled in 255ms (761 modules)
+   Reload env: .env
+ ✓ Compiled in 280ms (761 modules)
+   Reload env: .env
+ ✓ Compiled in 267ms (761 modules)
+ GET / 200 in 178ms
+ GET /?code=c0d4dda9-c0df-4c09-a397-0ff59906a76f 200 in 53ms
+ ✓ Compiled in 291ms (123 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Serializing big strings (140kiB) impacts deserialization performance (consider using Buffer instead and decode when needed)
+^C^C

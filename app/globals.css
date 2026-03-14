@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #f4f6f8;
+  --foreground: #182026;
+  --brand: #005b88;
+  --muted: #e6edf2;
+}
+
+body {
+  background: radial-gradient(circle at top left, #d8eef9 0%, #f4f6f8 45%, #ffffff 100%);
+  color: var(--foreground);
+  min-height: 100vh;
+}
+
+.card {
+  @apply rounded-xl border border-slate-200 bg-white p-6 shadow-sm;
+}
+
+.input {
+  @apply w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 focus:border-sky-700 focus:outline-none focus:ring-1 focus:ring-sky-700;
+}
+
+.btn-primary {
+  @apply rounded-md bg-sky-800 px-4 py-2 text-sm font-semibold text-white transition hover:bg-sky-700;
+}
+
+.btn-secondary {
+  @apply rounded-md border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-100;
+}
