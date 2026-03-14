@@ -2,6 +2,8 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import { Logo } from "@/components/common/logo";
 
+export const dynamic = "force-dynamic";
+
 export default function AuthLayout({
   children,
 }: Readonly<{ children: ReactNode }>) {

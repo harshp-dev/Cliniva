@@ -35,15 +35,17 @@ Or for production:
 vercel --prod
 ```
 
-### 4. Set required environment variables in Vercel
+### 4. Set required environment variables in Vercel (required for auth to work)
 
-In **Settings → Environment Variables**, add:
+**Important:** Add these in your Vercel project **Settings → Environment Variables**:
 
-| Variable | Description |
-|----------|-------------|
-| `NEXT_PUBLIC_SUPABASE_URL` | Your Supabase project URL |
-| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase anonymous key |
-| `SUPABASE_SERVICE_ROLE_KEY` | Supabase service role key (server-side only) |
+| Variable | Description | Required |
+|----------|-------------|----------|
+| `NEXT_PUBLIC_SUPABASE_URL` | Your Supabase project URL (e.g. `https://xxx.supabase.co`) | Yes |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase anonymous/public key | Yes |
+| `SUPABASE_SERVICE_ROLE_KEY` | Supabase service role key (server-side only) | Yes |
+
+Without these, sign-in/sign-up and protected routes will not work. The build will pass, but auth features require these at runtime.
 
 Optional (for full features):
 
