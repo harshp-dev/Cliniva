@@ -14,6 +14,7 @@ export function Logo({ variant = "mark", className }: LogoProps) {
       height={variant === "mark" ? 48 : 48}
       className={className}
       priority
+      unoptimized
     />
   );
 }

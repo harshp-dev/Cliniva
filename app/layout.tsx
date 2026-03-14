@@ -1,15 +1,29 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, Geist } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { AuthHashHandler } from "@/components/features/auth/auth-hash-handler";
 
-const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
+const sansFont = localFont({
+  src: [
+    {
+      path: "./fonts/GeistVF.woff",
+      style: "normal"
+    }
+  ],
+  variable: "--font-sans",
+  display: "swap"
+});
 
-const bricolage = Bricolage_Grotesque({
+const primaryFont = localFont({
+  src: [
+    {
+      path: "./fonts/GeistVF.woff",
+      style: "normal"
+    }
+  ],
   variable: "--font-primary",
-  subsets: ["latin"],
-  display: "swap",
+  display: "swap"
 });
 
 export const metadata: Metadata = {
@@ -24,8 +38,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn("font-sans", geist.variable)}>
-      <body className={`${bricolage.variable} font-sans antialiased`}>
+    <html lang="en" className={cn("font-sans", sansFont.variable)}>
+      <body className={cn(primaryFont.variable, "font-sans antialiased")}>
         <AuthHashHandler />
         {children}
       </body>

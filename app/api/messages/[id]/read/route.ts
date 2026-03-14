@@ -7,13 +7,13 @@ const paramsSchema = z.object({
   id: z.string().uuid()
 });
 
-export async function POST(request: NextRequest, { params }: { params: { id: string } }) {
+export async function POST(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const context = await getRequestContext(request);
   if (!context) {
     return error(401, "unauthorized", "Authentication required");
   }
 
-  const parsedParams = paramsSchema.safeParse(params);
+  const parsedParams = paramsSchema.safeParse(await params);
   if (!parsedParams.success) {
     return error(400, "validation_error", "Invalid message id");
   }
@@ -50,3 +50,4 @@ export async function POST(request: NextRequest, { params }: { params: { id: str
 
   return ok(updated);
 }
+

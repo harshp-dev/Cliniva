@@ -118,6 +118,7 @@ export function BlogSection() {
                   fill
                   className="object-cover"
                   sizes="320px"
+                  unoptimized
                 />
               </div>
               <div className="p-5">

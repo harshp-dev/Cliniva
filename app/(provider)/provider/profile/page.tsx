@@ -1,4 +1,4 @@
-﻿import { BellRing, CalendarClock, ClipboardList, NotebookPen } from "lucide-react";
+import { BellRing, CalendarClock, ClipboardList, NotebookPen } from "lucide-react";
 import { Button } from "@/components/common/button";
 import { StatusBadge } from "@/components/common/status-badge";
 import {
@@ -17,10 +17,11 @@ type PageProps = {
 };
 
 export default async function ProviderProfilePage({ searchParams }: PageProps) {
+  const fallbackSearchParams: Record<string, string | string[] | undefined> = {};
   const [{ supabase, profile }, dashboardData, resolvedSearchParams] = await Promise.all([
     requireAuthProfile("provider"),
     getProviderDashboardData(),
-    searchParams ?? Promise.resolve({}),
+    searchParams ?? Promise.resolve(fallbackSearchParams),
   ]);
   const providerProfile = await getProviderProfile(supabase, profile.id);
   const wasUpdated = resolvedSearchParams.updated === "1";
@@ -125,3 +126,4 @@ export default async function ProviderProfilePage({ searchParams }: PageProps) {
     </DashboardShell>
   );
 }
+

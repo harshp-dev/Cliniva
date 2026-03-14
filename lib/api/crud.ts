@@ -58,7 +58,7 @@ export function createCrudHandlers<TSchema extends z.ZodTypeAny>({ table, schema
     }
 
     const record = {
-      ...parsed.data,
+      ...(parsed.data as Record<string, unknown>),
       organization_id: context.organizationId
     };
 
@@ -73,3 +73,5 @@ export function createCrudHandlers<TSchema extends z.ZodTypeAny>({ table, schema
 
   return { GET, POST };
 }
+
+

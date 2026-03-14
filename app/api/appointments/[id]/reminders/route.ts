@@ -7,7 +7,7 @@ import { getRequestContext } from "@/lib/auth/request-context";
 const uuidSchema = z.string().uuid();
 const ALLOWED_ROLES = ["admin", "provider", "staff"] as const;
 
-export async function POST(request: NextRequest, { params }: { params: { id: string } }) {
+export async function POST(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const context = await getRequestContext(request);
   if (!context) {
     return error(401, "unauthorized", "Authentication required");
@@ -17,7 +17,8 @@ export async function POST(request: NextRequest, { params }: { params: { id: str
     return error(403, "forbidden", "Insufficient role permissions");
   }
 
-  const parsedId = uuidSchema.safeParse(params.id);
+  const { id } = await params;
+  const parsedId = uuidSchema.safeParse(id);
   if (!parsedId.success) {
     return error(400, "validation_error", "Invalid appointment id");
   }
@@ -77,3 +78,4 @@ export async function POST(request: NextRequest, { params }: { params: { id: str
 
   return ok({ appointment_id: appointment.id, reminders_created: notifications?.length ?? 0, notifications });
 }
+

@@ -8,7 +8,7 @@ import { carePlanUpdateSchema } from "@/lib/validators/care-plan";
 const uuidSchema = z.string().uuid();
 const ALLOWED_ROLES = ["admin", "provider", "staff"] as const;
 
-export async function PATCH(request: NextRequest, { params }: { params: { id: string } }) {
+export async function PATCH(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const context = await getRequestContext(request);
   if (!context) {
     return error(401, "unauthorized", "Authentication required");
@@ -17,7 +17,8 @@ export async function PATCH(request: NextRequest, { params }: { params: { id: st
     return error(403, "forbidden", "Insufficient role permissions");
   }
 
-  const parsedId = uuidSchema.safeParse(params.id);
+  const { id } = await params;
+  const parsedId = uuidSchema.safeParse(id);
   if (!parsedId.success) {
     return error(400, "validation_error", "Invalid care plan id");
   }
@@ -46,3 +47,4 @@ export async function PATCH(request: NextRequest, { params }: { params: { id: st
 
   return ok(data);
 }
+

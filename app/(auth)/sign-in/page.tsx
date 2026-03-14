@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Link from "next/link";
 import { AuthShell } from "@/components/features/auth/auth-shell";
 import { SignInForm } from "@/components/features/auth/sign-in-form";
@@ -16,7 +17,9 @@ export default function SignInPage() {
         </span>
       }
     >
-      <SignInForm />
+      <Suspense fallback={null}>
+        <SignInForm />
+      </Suspense>
     </AuthShell>
   );
 }

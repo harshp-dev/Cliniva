@@ -7,7 +7,7 @@ const slotSchema = z.object({
 
 export const providerAvailabilitySchema = z.object({
   timezone: z.string().min(2).max(64).default("UTC"),
-  weekly: z.record(z.array(slotSchema)).default({}),
+  weekly: z.record(z.string(), z.array(slotSchema)).default({}),
   exceptions: z
     .array(
       z.object({
@@ -18,3 +18,4 @@ export const providerAvailabilitySchema = z.object({
     )
     .default([])
 });
+

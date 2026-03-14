@@ -110,6 +110,7 @@ export function HeroSection() {
               className="object-cover grayscale"
               sizes="(max-width: 1024px) 100vw, 50vw"
               priority
+              unoptimized
             />
           </div>
           <div className="reveal-text mt-6 grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-4">

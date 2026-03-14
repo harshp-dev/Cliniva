@@ -9,7 +9,7 @@ import { patientUpdateSchema } from "@/lib/validators/patient";
 const uuidSchema = z.string().uuid();
 const ALLOWED_ROLES = ["admin", "provider", "staff"] as const;
 
-export async function GET(request: NextRequest, { params }: { params: { id: string } }) {
+export async function GET(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const context = await getRequestContext(request);
   if (!context) {
     return error(401, "unauthorized", "Authentication required");
@@ -19,7 +19,8 @@ export async function GET(request: NextRequest, { params }: { params: { id: stri
     return error(403, "forbidden", "Insufficient role permissions");
   }
 
-  const idParsed = uuidSchema.safeParse(params.id);
+  const { id } = await params;
+  const idParsed = uuidSchema.safeParse(id);
   if (!idParsed.success) {
     return error(400, "validation_error", "Invalid patient id");
   }
@@ -68,7 +69,7 @@ export async function GET(request: NextRequest, { params }: { params: { id: stri
   });
 }
 
-export async function PATCH(request: NextRequest, { params }: { params: { id: string } }) {
+export async function PATCH(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const context = await getRequestContext(request);
   if (!context) {
     return error(401, "unauthorized", "Authentication required");
@@ -78,7 +79,8 @@ export async function PATCH(request: NextRequest, { params }: { params: { id: st
     return error(403, "forbidden", "Insufficient role permissions");
   }
 
-  const idParsed = uuidSchema.safeParse(params.id);
+  const { id } = await params;
+  const idParsed = uuidSchema.safeParse(id);
   if (!idParsed.success) {
     return error(400, "validation_error", "Invalid patient id");
   }
@@ -107,3 +109,4 @@ export async function PATCH(request: NextRequest, { params }: { params: { id: st
 
   return ok(data);
 }
+

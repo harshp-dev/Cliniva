@@ -6,11 +6,11 @@ export interface RequestContext {
   userId: string;
   organizationId: string;
   role: AppRole;
-  supabase: ReturnType<typeof createServerSupabaseClient>;
+  supabase: Awaited<ReturnType<typeof createServerSupabaseClient>>;
 }
 
 export async function getRequestContext(request: NextRequest): Promise<RequestContext | null> {
-  const supabase = createServerSupabaseClient();
+  const supabase = await createServerSupabaseClient();
 
   const {
     data: { user }
@@ -42,3 +42,4 @@ export async function getRequestContext(request: NextRequest): Promise<RequestCo
     supabase
   };
 }
+
