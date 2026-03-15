@@ -1,4 +1,4 @@
-﻿import type { ReactNode } from "react";
+import type { ReactNode } from "react";
 import Link from "next/link";
 import type { LucideIcon } from "lucide-react";
 import { CalendarDays, ChevronRight, Sparkles } from "lucide-react";
@@ -63,9 +63,9 @@ export function DashboardShell({
   children,
 }: DashboardShellProps) {
   return (
-    <div className="min-h-screen bg-[#F7F1E3] text-[#1F1A14]">
-      <div className="min-h-screen bg-[radial-gradient(circle_at_top_left,_rgba(250,129,18,0.18),_transparent_28%),radial-gradient(circle_at_bottom_right,_rgba(34,34,34,0.08),_transparent_26%)]">
-        <div className="mx-auto flex min-h-screen w-full max-w-[1600px] flex-col gap-6 px-4 py-4 sm:px-6 lg:flex-row lg:px-8 lg:py-6">
+    <div className="min-h-screen min-w-0 overflow-x-hidden bg-[#F7F1E3] text-[#1F1A14]">
+      <div className="min-h-screen min-w-0 bg-[radial-gradient(circle_at_top_left,_rgba(250,129,18,0.18),_transparent_28%),radial-gradient(circle_at_bottom_right,_rgba(34,34,34,0.08),_transparent_26%)]">
+        <div className="mx-auto flex min-h-screen w-full max-w-[1600px] min-w-0 flex-col gap-6 overflow-x-hidden px-4 py-4 sm:px-6 lg:flex-row lg:px-8 lg:py-6">
           <aside className="w-full shrink-0 lg:sticky lg:top-6 lg:h-[calc(100vh-3rem)] lg:max-w-[320px]">
             <div className="flex h-full flex-col overflow-hidden rounded-[32px] border border-[#1F1A14]/10 bg-[#16120F] text-[#F8F4EC] shadow-[0_28px_90px_rgba(15,10,6,0.16)]">
               <div className="border-b border-white/10 px-6 py-6">
@@ -160,9 +160,9 @@ export function DashboardShell({
 
           <main className="min-w-0 flex-1">
             <div className="space-y-6">
-              <section className="overflow-hidden rounded-[34px] border border-[#1F1A14]/10 bg-white/80 shadow-[0_22px_80px_rgba(31,26,20,0.08)] backdrop-blur">
-                <div className="grid gap-0 xl:grid-cols-[1.45fr_0.95fr]">
-                  <div className="border-b border-[#1F1A14]/8 px-6 py-7 sm:px-8 xl:border-r xl:border-b-0 xl:px-10 xl:py-10">
+              <section className="min-w-0 overflow-hidden rounded-[34px] border border-[#1F1A14]/10 bg-white/80 shadow-[0_22px_80px_rgba(31,26,20,0.08)] backdrop-blur">
+                <div className="grid min-w-0 gap-0 xl:grid-cols-[1.45fr_0.95fr]">
+                  <div className="min-w-0 border-b border-[#1F1A14]/8 px-6 py-7 sm:px-8 xl:border-r xl:border-b-0 xl:px-10 xl:py-10">
                     <div className="flex flex-wrap items-center gap-3 text-sm text-[#1F1A14]/62">
                       <span className="rounded-full border border-[#FA8112]/25 bg-[#FA8112]/12 px-3 py-1 font-semibold uppercase tracking-[0.18em] text-[#9A4B00]">
                         {roleLabel}
@@ -180,7 +180,7 @@ export function DashboardShell({
                     {actions ? <div className="mt-6 flex flex-wrap gap-3">{actions}</div> : null}
                   </div>
 
-                  <div className="bg-[linear-gradient(180deg,rgba(248,244,236,0.95),rgba(245,231,198,0.9))] px-6 py-7 sm:px-8 xl:px-8 xl:py-10">
+                  <div className="min-w-0 bg-[linear-gradient(180deg,rgba(248,244,236,0.95),rgba(245,231,198,0.9))] px-6 py-7 sm:px-8 xl:px-8 xl:py-10">
                     <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#1F1A14]/48">
                       Operational focus
                     </p>

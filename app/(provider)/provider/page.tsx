@@ -1,11 +1,5 @@
-import { EhrManagementWorkspace } from "@/components/ehr/ehr-management-workspace";
-import { PrescriptionWorkspace } from "@/components/prescriptions/prescription-workspace";
+import { redirect } from "next/navigation";
 
 export default function ProviderPage() {
-  return (
-    <section className="space-y-6">
-      <EhrManagementWorkspace />
-      <PrescriptionWorkspace />
-    </section>
-  );
+  redirect("/provider/dashboard");
 }

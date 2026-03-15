@@ -1,4 +1,4 @@
-﻿@import "tailwindcss";
+@import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
@@ -169,6 +169,7 @@ body {
   color: var(--color-text);
   font-family: var(--font-primary);
   font-optical-sizing: auto;
+  overflow-x: hidden;
 }
 
 @media (prefers-reduced-motion: reduce) {
